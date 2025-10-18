@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EMADISSA - Chat con IA</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f9f9f9, #f0f4ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .chat-container {
+    background-color: #fffdfc;
+    border-radius: 25px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    width: 370px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  .chat-header img {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .chat-header h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .chat-box {
+    height: 320px;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chat-message {
+    animation: fadeMessage 0.3s ease;
+  }
+
+  @keyframes fadeMessage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .user { text-align: right; color: #5b7bfa; font-weight: 500; }
+  .bot { text-align: left; color: #333; }
+
+  .chat-input {
+    display: flex;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: white;
+  }
+
+  .chat-input input {
+    border: none;
+    flex: 1;
+    outline: none;
+    font-size: 14px;
+  }
+
+  .chat-input button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #5b7bfa;
+    transition: transform 0.2s;
+  }
+
+  .chat-input button:hover {
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <img src="logoemadissa3.jpg" alt="Logo EMADISSA">
+      <h4>EMADISSA - Chat con IA</h4>
+    </div>
+    <div class="chat-box" id="chat-box">
+      <div class="chat-message bot"><b>IA:</b> ¡Hola! Soy tu asistente virtual de belleza.</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Escribe tu mensaje..." />
+      <button id="send-btn">➤</button>
+    </div>
+  </div>
+
+<script>
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+
+function sendMessage() {
+  const message = userInput.value.trim();
+  if (!message) return;
+
+  chatBox.innerHTML += `<div class="chat-message user"><b>Tú:</b> ${message}</div>`;
+  userInput.value = '';
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  setTimeout(() => {
+    chatBox.innerHTML += `<div class="chat-message bot"><b>IA:</b> Ups... el modelo está ocupado, intenta de nuevo.</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 800);
+}
+
+sendBtn.addEventListener('click', sendMessage);
+userInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage();
+});
+</script>
+</body>
+</html>

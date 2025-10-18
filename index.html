@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emadissa</title>
+
+  <!-- Tipografías elegantes estilo editorial -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-2sTg5sK..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Productos dermatológicos naturales y un test con IA para recomendar el kit ideal según tu tipo de piel." />
+</head>
+<body>
+
+  <header class="header" id="top">
+    <nav class="nav container">
+      <a class="brand" href="#top" aria-label="Ir al inicio">
+        <img src="logoemadissa3.jpg" alt="Emadissa" />
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about">NOSOTROS</a></li>
+        <li><a href="#productos">PRODUCTOS</a></li>
+        <li><a href="#ia">IA SKIN CHAT</a></li>
+        <li><a href="#contacto">CONTACTO</a></li>
+        <li><a href="#tips">TIPS</a></li>
+        <li><a class="btn btn--outline" href="login.html">INICIAR SESIÓN</a></li>
+
+<li>
+  <button class="cart-btn" id="cartBtn" aria-label="Abrir carrito">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero container">
+    <div class="hero__text">
+      <h1 class="display">Cuidado de la piel con <span class="accent">inteligencia</span> y simplicidad</h1>
+      <p class="lead">
+        Fórmulas minimalistas con ingredientes naturales respaldados por ciencia.
+        Nuestro test con IA te recomienda el kit perfecto para tu tipo de piel.
+      </p>
+      <div class="hero__cta">
+        <a class="btn" href="#ia">Descubre tu kit con IA</a>
+        <a class="btn btn--ghost" href="#productos">Ver productos</a>
+      </div>
+      <div class="hero__badges">
+        <span><i class="fa-solid fa-leaf"></i> Natural</span>
+        <span><i class="fa-solid fa-flask"></i> Efectivo</span>
+        <span><i class="fa-solid fa-recycle"></i> Sostenible</span>
+      </div>
+    </div>
+    <figure class="hero__media carrusel">
+  <img src="kitgrasa.jpg" alt="Kit piel grasa" class="carrusel-img active">
+  <img src="kitseca.jpg" alt="Kit piel seca" class="carrusel-img">
+  <img src="kitmixta.jpg" alt="Kit piel mixta" class="carrusel-img">
+</figure>
+
+  </section>
+
+  <!-- Nosotros -->
+  <section class="about container" id="about">
+    <div class="about__grid">
+      <figure class="about__img">
+        <img src="producto.jpg" alt="Laboratorio / proceso limpio" loading="lazy">
+      </figure>
+      <div class="about__text">
+        <h2>Minimalismo, ciencia y naturaleza</h2>
+        <p>
+          En Emadissa creemos en rutinas esenciales: menos pasos, más resultados.
+          Cada fórmula combina <strong>ingredientes naturales</strong> con
+          <strong>dermatología basada en evidencia</strong>.
+        </p>
+        <p>
+          Nuestro enfoque: piel saludable, barrera fuerte y resultados visibles sin complicaciones.
+        </p>
+        <a class="link" href="#ia">Conoce el IA Skin Chat →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section class="productos container" id="productos" aria-labelledby="prodTitle">
+  <h2 id="prodTitle" class="section-title"> Nuestros Productos</h2>
+
+  <!--  Barra de búsqueda -->
+  <input type="text" id="search" placeholder="Buscar producto..." 
+    style="padding:10px; width:100%; max-width:400px; margin:15px 0; border-radius:5px; border:1px solid #ccc;">
+
+  <div class="cards" id="productList">
+
+      <!-- kit piel grasa -->
+      <article class="card">
+        <figure class="card__media">
+          <img src="kitgrasa.jpg" alt="Kit para piel grasa">
+        </figure>
+        <div class="card__body">
+          <h3>Kit Piel Grasa</h3>
+          <p>Equilibrio del sebo y control de brillo sin resecar.</p>
+          <div class="card__actions">
+            <a class="btn btn--small" href="producto-kit-grasa.html">Ver más</a>
+            <button class="btn btn--small btn--ghost" data-add="kit-grasa">Agregar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- kit piel mixta -->
+      <article class="card">
+        <figure class="card__media">
+          <img src="kitmixta.jpg" alt="Kit para piel mixta">
+        </figure>
+        <div class="card__body">
+          <h3>Kit Piel Mixta</h3>
+          <p>Hidratación ligera con balance entre zonas secas y grasas.</p>
+          <div class="card__actions">
+            <a class="btn btn--small" href="producto-kit-mixta.html">Ver más</a>
+            <button class="btn btn--small btn--ghost" data-add="kit-mixta">Agregar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- kit piel seca -->
+      <article class="card">
+        <figure class="card__media">
+          <img src="kitseca.jpg" alt="Kit para piel normal">
+        </figure>
+        <div class="card__body">
+          <h3>Kit Piel Seca</h3>
+          <p>Rutina esencial para mantener luminosidad y protección.</p>
+          <div class="card__actions">
+            <a class="btn btn--small" href="producto-kit-normal.html">Ver más</a>
+            <button class="btn btn--small btn--ghost" data-add="kit-normal">Agregar</button>
+          </div>
+        </div>
+      </article>
+      <!-- kit accesorios -->
+<article class="card">
+  <figure class="card__media">
+    <img id="imagenPrincipal" src="Accesorios faciales.jpg" alt="Kit azul">
+  </figure>
+  <div class="card__body">
+    <h3>Kit de Accesorio Facial</h3>
+    <p>Set de accesorios esenciales para tu rutina facial: vincha, brocha, esponja y moña satinada.</p>
+    <div class="card__actions">
+      <button type="button" class="btn btn--small" id="verMasKit">Ver más</button>
+      <button class="btn btn--small btn--ghost" data-add="kit-accesorio-facial">Agregar</button>
+    </div>
+
+    <div class="mini-pestana-colores" id="coloresKit">
+      <p>Elige un color:</p>
+      <div class="mini-imagenes">
+        <img src="kitrosa.jpg" alt="Kit rosa" data-color="Rosa">
+        <img src="kitverde.jpg" alt="Kit verde" data-color="Verde">
+        <img src="kitmorado.jpg" alt="Kit morado" data-color="Morado">
+        <img src="Accesorios faciales.jpg" alt="Kit azul" data-color="Azul">
+      </div>
+    </div>
+
+  </div>
+</article>
+
+    </div>
+  </section>
+  <!-- Chat de IA -->
+  <section class="ia" id="ia" aria-labelledby="iaTitle">
+    <div class="ia__inner container">
+      <div>
+        <h2 id="iaTitle">IA Skin Chat</h2>
+        <p class="lead">
+          Responde 6 preguntas y nuestra IA te recomendará el kit ideal según tu
+          tipo de piel, objetivos y sensibilidad.
+        </p>
+        <a class="btn btn--light" href="chat.html">Iniciar chat</a>
+      </div>
+      <figure class="ia__mock">
+        <img src="chatia.jpg" alt="Vista previa del chat de IA" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section class="tips container" id="tips">
+    <h2 class="section-title">Tips de cuidado</h2>
+    <div class="tips__grid">
+      <article class="tip">
+        <h3>Rutina AM/PM minimalista</h3>
+        <p>Limpiador suave, hidratante funcional y protector solar. Nada más.</p>
+        <a class="link" href="tipminimalista.html">Leer →</a>
+      </article>
+      <article class="tip">
+        <h3>Activos que sí valen la pena</h3>
+        <p>Niacinamida, vitamina C estable y ceramidas: por qué funcionan.</p>
+        <a class="link" href="tipactivos.html">Leer →</a>
+      </article>
+      <article class="tip">
+        <h3>Sensibilidad y barrera</h3>
+        <p>Cómo reparar tu barrera cutánea sin sobretratar la piel.</p>
+        <a class="link" href="tipbarrera.html">Leer →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto container" id="contacto" aria-labelledby="contactTitle">
+    <div class="contacto__grid">
+      <figure class="contacto__img">
+        <img src="" alt="" loading="lazy">
+      </figure>
+
+      <div class="contacto__form">
+        <h2 id="contactTitle">¿Quieres más información?</h2>
+        <form id="formContacto" novalidate>
+          <label>Nombre completo *
+            <input type="text" name="nombre" required />
+          </label>
+          <label>Número celular *
+            <input type="tel" name="celular" pattern="[0-9 ]{7,}" required />
+          </label>
+          <label>E-mail *
+            <input type="email" name="email" required />
+          </label>
+          <label>Mensaje *
+            <textarea name="mensaje" rows="4" required></textarea>
+          </label>
+          <label class="check">
+            <input type="checkbox" required />
+            Acepto la política de tratamiento de datos.
+          </label>
+          <button class="btn" type="submit">Enviar</button>
+          <p class="form__msg" id="formMsg" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contacto__social">
+          <a href="https://www.instagram.com/emadissa_skin/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@emadissa_skin?lang=es" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <img class="footer__logo" src="logoemadissa3.jpg" alt="Emadissa" />
+        <p class="muted">Dermatología · Cosmetología</p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="devoluciones.html">Política de devoluciones</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
+      <form class="footer__newsletter" id="newsletter">
+        <label>Suscríbete a nuestro catálogo mensual</label>
+        <div class="inline">
+          <input type="email" name="email" placeholder="E-mail *" required />
+          <button class="btn btn--light" type="submit">Enviar</button>
+        </div>
+        <small class="muted" id="newsMsg" aria-live="polite"></small>
+      </form>
+    </div>
+    <div class="container footer__copy">
+      <small>© <span id="y"></span> Emadissa. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+<!-- Carrito -->
+<div class="cart" id="cart">
+  <div class="cart__header">
+    <h2>carrito</h2>
+    <button id="closeCart" aria-label="Cerrar carrito">&times;</button>
+  </div>
+  <ul class="cart__items" id="cartItems"></ul>
+  <div class="cart__footer">
+    <p><strong>Total: $<span id="cartTotal">0</span></strong></p>
+    <button class="btn" id="checkoutBtn">Continuar con la compra</button>
+  </div>
+</div>
+  <script src="script.js"></script>
+
+  <script>
+const heroImgs = document.querySelectorAll('.hero__media.carrusel .carrusel-img');
+let heroIndex = 0;
+
+setInterval(() => {
+  heroImgs[heroIndex].classList.remove('active');
+  heroIndex = (heroIndex + 1) % heroImgs.length;
+  heroImgs[heroIndex].classList.add('active');
+}, 3500); 
+</script>
+<script>
+const verMasBtn = document.getElementById('verMasKit');
+const coloresDiv = document.getElementById('coloresKit');
+const imagenPrincipal = document.getElementById('imagenPrincipal');
+
+
+verMasBtn.addEventListener('click', () => {
+  coloresDiv.style.display = coloresDiv.style.display === 'block' ? 'none' : 'block';
+});
+
+
+document.querySelectorAll('.mini-imagenes img').forEach(img => {
+  img.addEventListener('click', () => {
+    imagenPrincipal.src = img.src; 
+    imagenPrincipal.alt = "Kit " + img.dataset.color; 
+  });
+});
+</script>
+
+</body>
+</html>
+
